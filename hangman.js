@@ -43,15 +43,26 @@ function Letter(character) {
     this.exposed = false;
     this.character = character;
 
+    //     this.exposeIfMatches = function(letter) {
+    //         if (this.character === letter) {
+    //             this.exposed = true;
+    //         }
+    //     }
+    // }
+
     this.exposeIfMatches = function(letter) {
+        var tempLetter = "";
         if (this.character === letter) {
             this.exposed = true;
+            tempLetter = this.character;
         }
+
+        if (this.exposed === false) {
+            tempLetter = "_";
+        }
+        console.log(tempLetter);
     }
 }
-
-
-
 //New Game//
 //Need to set a number of guesses remaining for the user to 10
 //Randomly pick a word from an array of choices
@@ -89,6 +100,12 @@ var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "
 var currentWord;
 var numGuesses;
 var wordChoices = ["Apple", "Banana"];
+
+
+
+
+
+
 
 function guessLetter() {
     if (numGuesses > 0) {
