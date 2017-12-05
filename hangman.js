@@ -11,7 +11,7 @@ var prompt = require("prompt");
 //isExposed()
 
 function Word(value) {
-    this.letters = [];
+    this.letters = []; //"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     for (var l = 0; l < value.length; l++) {
         this.letters.push(new Letter(value[l]));
     }
@@ -85,7 +85,7 @@ function Letter(character) {
 
 
 //======================================================================================================================================================
-
+var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var currentWord;
 var numGuesses;
 var wordChoices = ["Apple", "Banana"];
@@ -93,8 +93,8 @@ var wordChoices = ["Apple", "Banana"];
 function guessLetter() {
     if (numGuesses > 0) {
         inquirer.prompt([{
-                "message": "Guess A Letter:",
-                "name": "letter"
+                message: "Guess A Letter:",
+                name: "letter"
             }])
             .then(function(userInput) {
                 currentWord.exposeLetter(userInput.letter);
